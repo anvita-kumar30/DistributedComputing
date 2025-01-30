@@ -15,6 +15,12 @@ public class Server {
                     String str = (String) dis.readUTF();
                     System.out.println("\nMessage " + limit + "\t" +  str);
                     limit++;
+                    if (limit >= 5) {
+                        System.out.println("Server shutting down...");
+                        ss.close();
+                        break; // Exit server loop
+                    }
+                    
                 }
             }
         } catch (Exception e) {
