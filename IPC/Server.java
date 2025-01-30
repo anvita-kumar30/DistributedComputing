@@ -13,7 +13,7 @@ public class Server {
                     Socket s = ss.accept();
                     DataInputStream dis = new DataInputStream(s.getInputStream());
                     String str = (String) dis.readUTF();
-                    System.out.println("\nMessage " + limit + "\t" +  str);
+                    System.out.println("\nMessage " + limit +  str);
                     limit++;
                     if (limit >= 5) {
                         System.out.println("Server shutting down...");

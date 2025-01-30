@@ -17,7 +17,7 @@ public class Client {
                             System.out.println("Client exiting...");
                             break; // Exit loop when user types "exit"
                         }
-                        dis.writeUTF(" Client 1 has sent " + str);
+                        dis.writeUTF("\tClient 1 has sent " + str);
                         dis.flush();
                         dis.close();
                         s.close();
