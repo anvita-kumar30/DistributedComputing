@@ -6,7 +6,7 @@ import java.net.*;
 public class Client {
     public static void main(String[] args) {
         try (Socket socket = new Socket("localhost", 9999)) {
-            System.out.println("Connected to server...");
+            System.out.println("Connected to server. Enter a message (or type 'exit' to quit):\n");
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
@@ -28,7 +28,7 @@ public class Client {
             BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
             while (true) {
                 String msg = console.readLine();
-                if (msg.equals("quit")) {
+                if (msg.equals("exit")) {
                     break;
                 }
                 out.println(msg);
