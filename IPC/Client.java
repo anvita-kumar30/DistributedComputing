@@ -8,14 +8,14 @@ public class Client {
     public static void main(String args[]) {
         try {
             try (Scanner sc = new Scanner(System.in)) {
-                System.out.println("Client\n");
+                System.out.println("Client connected. Enter a message:\n");
                 while (true) {
                     // choice = sc.nextInt();
                     // if (choice == 2) {
                     //     System.out.println("ended\n");
                     //     break;
                     // } else 
-                        Socket s = new Socket("localhost", 6666);
+                        Socket s = new Socket("localhost", 7777);
                         DataOutputStream dis = new DataOutputStream(s.getOutputStream());
                         String str = sc.nextLine();
                         dis.writeUTF("Client 1 has sent " + str);
