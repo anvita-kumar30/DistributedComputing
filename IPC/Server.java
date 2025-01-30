@@ -8,13 +8,12 @@ public class Server {
         try {
             try (ServerSocket ss = new ServerSocket(7777)) {
                 int limit = 0;
-                System.out.println("server connected");
+                System.out.println("Server connected");
                 while (true) {
                     Socket s = ss.accept();
-                    System.out.println("Client connected...");
                     DataInputStream dis = new DataInputStream(s.getInputStream());
                     String str = (String) dis.readUTF();
-                    System.out.println("\nMessage " + limit + str);
+                    System.out.println("\nMessage " + limit + "\t" +  str);
                     limit++;
                 }
             }
