@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class RaymondTree {
+public class RaymondsTree {
     static int n = 5;
     @SuppressWarnings("unchecked")
     static List<Integer>[] requestQueue = (List<Integer>[]) new ArrayList[n];
