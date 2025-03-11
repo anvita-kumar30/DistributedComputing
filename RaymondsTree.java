@@ -1,11 +1,11 @@
 import java.util.*;
 
 public class RaymondsTree {
-    static int n = 5;
+    static int n = 5; // 5 processes (0, 1, 2, 3, and 4)
     @SuppressWarnings("unchecked")
     static List<Integer>[] requestQueue = (List<Integer>[]) new ArrayList[n];
-    static int[] holder = {0, 0, 0, 1, 1};  // Holder array
-    static int[] token = {1, 0, 0, 0, 0};  // Token status
+    static int[] holder = {0, 0, 0, 1, 1};  // Holder array: Stores the parent (or owner) of each process
+    static int[] token = {1, 0, 0, 0, 0};  // Token status: Indicates which process holds the token (initially, process 0 has it).
     static int[][] adjMatrix = {
         {1, 0, 0, 0, 0},
         {1, 0, 0, 0, 0},
@@ -29,7 +29,7 @@ public class RaymondsTree {
         }
 
         // Read the process that wants to enter CS
-        System.out.print("\nEnter the process who wants to enter CS: ");
+        System.out.print("\nEnter the process who wants to enter critical section (CS): ");
         int reqProcess = scanner.nextInt();
 
         int parent = findParent(reqProcess);
@@ -40,7 +40,7 @@ public class RaymondsTree {
             token[parent] = 0;
             token[child] = 1;
 
-            // ✅ Clear request queue of parent after transferring the token
+            // Clear request queue of parent after transferring the token
             requestQueue[parent].clear();
 
             System.out.println("\nParent process " + parent + " has the token and sends it to " + child);
@@ -78,7 +78,7 @@ public class RaymondsTree {
         System.out.println("\nProcess " + reqProcess + " sending request to Parent Process " + parent);
         System.out.println("Request queue: " + Arrays.deepToString(requestQueue));
 
-        // ✅ Fix: Stop searching if direct parent has the token
+        // Fix: Stop searching if direct parent has the token
         if (token[parent] == 1) {
             return parent;
         } else {
