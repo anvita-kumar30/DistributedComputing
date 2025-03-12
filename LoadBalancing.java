@@ -5,14 +5,14 @@ public class LoadBalancing {
         Scanner sc = new Scanner(System.in);
         
         // User Input
-        System.out.print("Enter number of servers: ");
+        System.out.print("Enter number of servers: "); // Number of available servers.
         int numServers = sc.nextInt();
-        System.out.print("Enter number of processes: ");
+        System.out.print("Enter number of processes: "); // Number of processes to be distributed.
         int numProcesses = sc.nextInt();
         
         while (true) {
-            printServerLoad(numServers, numProcesses);
-            displayMenu();
+            printServerLoad(numServers, numProcesses); // method to display how processes are distributed among servers.
+            displayMenu(); // Displays a menu and waits for the user's choice.
             System.out.print("> ");
             int choice = sc.nextInt();
             int temp;
